@@ -116,6 +116,18 @@
         color: #f0eaff;
       }
 
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
       @media (min-width: 840px) {
         .layout {
           grid-template-columns: 1.1fr 1fr;
@@ -133,8 +145,8 @@
         <h1>Daniel Alistar</h1>
         <p class="headline">Software Engineer focused on clean architecture, reliable delivery, and product-minded development.</p>
         <div class="meta">
-          <p>📍 Bucharest, Romania</p>
-          <p>✉️ <a href="mailto:daniel@example.com">daniel@example.com</a> · 🔗 <a href="https://github.com/daniel-alistar">github.com/daniel-alistar</a></p>
+          <p><span aria-hidden="true">📍</span> <span class="sr-only">Location: </span>Bucharest, Romania</p>
+          <p><span aria-hidden="true">✉️</span> <span class="sr-only">Email: </span><a href="mailto:daniel@example.com">daniel@example.com</a> · <span aria-hidden="true">🔗</span> <span class="sr-only">GitHub: </span><a href="https://github.com/daniel-alistar">github.com/daniel-alistar</a></p>
         </div>
       </section>
 
