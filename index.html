@@ -1,176 +1,351 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Daniel Alistar | Resume</title>
-    <style>
-      :root {
-        color-scheme: dark;
-        --bg: #0f1021;
-        --panel: #17172e;
-        --panel-border: #2e2d52;
-        --accent: #9f7aea;
-        --accent-soft: #7f5ae8;
-        --text: #f5f2ff;
-        --muted: #b8b4d6;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daniel Alistar | Resume</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b0b17;
+      --bg-soft: #14142b;
+      --panel: #16162c;
+      --panel-border: #302a54;
+      --accent: #a686ff;
+      --accent-strong: #8b62ff;
+      --text: #f4f0ff;
+      --muted: #beb7db;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Manrope, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(900px 500px at 10% -10%, rgba(141, 95, 255, 0.22), transparent 60%),
+        radial-gradient(700px 450px at 90% 0%, rgba(102, 69, 212, 0.18), transparent 60%),
+        linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 60%);
+      min-height: 100vh;
+      line-height: 1.55;
+    }
+
+    .layout {
+      width: min(1060px, 92vw);
+      margin: 2.5rem auto 3rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .card {
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.03), rgba(6, 6, 13, 0.3)), var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 18px;
+      padding: 1.35rem;
+      box-shadow: 0 10px 36px rgba(0, 0, 0, 0.35);
+      animation: rise 0.45s ease both;
+    }
+
+    .card:nth-child(2) {
+      animation-delay: 0.06s;
+    }
+
+    .card:nth-child(3) {
+      animation-delay: 0.12s;
+    }
+
+    .card:nth-child(4) {
+      animation-delay: 0.18s;
+    }
+
+    .hero {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.2;
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 2.85rem);
+    }
+
+    h2 {
+      font-size: 1.08rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+
+    h3 {
+      font-size: 1rem;
+    }
+
+    p,
+    li,
+    small {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .title {
+      font-size: 1.1rem;
+      color: #ddd2ff;
+    }
+
+    .headline {
+      font-size: 1.1rem;
+      text-wrap: pretty;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .link-pill {
+      border: 1px solid #473977;
+      background: rgba(166, 134, 255, 0.13);
+      border-radius: 999px;
+      padding: 0.28rem 0.72rem;
+      font-size: 0.88rem;
+      color: #e9dcff;
+      text-decoration: none;
+    }
+
+    .link-pill:hover {
+      border-color: #5f4a9e;
+      background: rgba(166, 134, 255, 0.2);
+    }
+
+    .subtle {
+      font-size: 0.9rem;
+    }
+
+    .skill-groups,
+    .experience-list {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .badge {
+      border: 1px solid #3d3367;
+      background: rgba(166, 134, 255, 0.12);
+      color: #ddd3ff;
+      border-radius: 999px;
+      padding: 0.2rem 0.63rem;
+      font-size: 0.82rem;
+    }
+
+    .item {
+      display: grid;
+      gap: 0.38rem;
+    }
+
+    .item .meta-line {
+      color: #c9beec;
+      font-size: 0.9rem;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      display: grid;
+      gap: 0.34rem;
+    }
+
+    a {
+      color: #d5c5ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #ede4ff;
+    }
+
+    .wide {
+      grid-column: span 1;
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
       }
 
-      * {
-        box-sizing: border-box;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
+    }
 
-      body {
-        margin: 0;
-        font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
-        color: var(--text);
-        background: radial-gradient(circle at top, #221947 0%, var(--bg) 42%);
-        min-height: 100vh;
-        line-height: 1.6;
-      }
-
+    @media (min-width: 920px) {
       .layout {
-        width: min(980px, 92vw);
-        margin: 3rem auto;
-        display: grid;
-        gap: 1.5rem;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 1.15rem;
       }
 
-      .card {
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.08)), var(--panel);
-        border: 1px solid var(--panel-border);
-        border-radius: 18px;
-        padding: 1.5rem;
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+      .hero,
+      .wide {
+        grid-column: span 2;
       }
+    }
+  </style>
+</head>
 
-      .hero {
-        display: grid;
-        gap: 1rem;
-      }
+<body>
+  <main class="layout">
+    <section class="card hero">
+      <h1>Daniel Alistar</h1>
+      <p class="title">Backend Software Engineer | APIs, Integrations, Automation</p>
+      <p class="headline">
+        Backend-focused software engineer with experience across healthcare interoperability, automation, data
+        integrations,
+        and technical support.
+        <br>
+        I build robust API-first systems, collaborate closely with cross-functional teams, and keep
+        delivery practical, secure, and customer-focused.
+      </p>
+      <div class="meta">
+        <a class="link-pill" href="https://www.linkedin.com/in/daniel-alistar/" target="_blank"
+          rel="noreferrer">LinkedIn</a>
+        <a class="link-pill" href="https://github.com/daniel-alistar" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+      <p class="subtle">Latest details are maintained on LinkedIn.</p>
+    </section>
 
-      h1,
-      h2,
-      h3 {
-        margin: 0;
-        line-height: 1.2;
-      }
-
-      h1 {
-        font-size: clamp(2rem, 4vw, 2.8rem);
-      }
-
-      h2 {
-        font-size: 1.2rem;
-        color: var(--accent);
-        margin-bottom: 0.8rem;
-      }
-
-      p,
-      li {
-        margin: 0;
-        color: var(--muted);
-      }
-
-      .headline {
-        font-size: 1.05rem;
-      }
-
-      .meta,
-      .skills,
-      .experience {
-        display: grid;
-        gap: 0.8rem;
-      }
-
-      .badges {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
-
-      .badge {
-        border: 1px solid #3b3260;
-        background: rgba(159, 122, 234, 0.14);
-        color: #dfd4ff;
-        border-radius: 999px;
-        padding: 0.2rem 0.65rem;
-        font-size: 0.85rem;
-      }
-
-      .item {
-        display: grid;
-        gap: 0.2rem;
-      }
-
-      .item small {
-        color: #cbc4ec;
-      }
-
-      a {
-        color: #cebfff;
-        text-decoration: none;
-      }
-
-      a:hover {
-        color: #f0eaff;
-      }
-
-      @media (min-width: 840px) {
-        .layout {
-          grid-template-columns: 1.1fr 1fr;
-        }
-
-        .hero {
-          grid-column: span 2;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <main class="layout">
-      <section class="card hero">
-        <h1>Daniel Alistar</h1>
-        <p class="headline">Software Engineer. This page mirrors my resume, with LinkedIn as the source of truth for current details.</p>
-        <div class="meta">
-          <p><span aria-hidden="true">📍</span> Location: Bucharest, Romania</p>
-          <p><span aria-hidden="true">✉️</span> Contact: Available via GitHub</p>
-          <p><span aria-hidden="true">🔗</span> LinkedIn: <a href="https://www.linkedin.com/in/daniel-alistar/">linkedin.com/in/daniel-alistar</a></p>
-          <p><span aria-hidden="true">💻</span> GitHub: <a href="https://github.com/daniel-alistar">@daniel-alistar</a></p>
-        </div>
-      </section>
-
-      <section class="card skills">
-        <h2>Core Skills</h2>
-        <div class="badges">
-          <span class="badge">Full-Stack Development</span>
-          <span class="badge">Web Architecture</span>
-          <span class="badge">Product Engineering</span>
-          <span class="badge">API Design</span>
-          <span class="badge">Cloud & Delivery</span>
-          <span class="badge">Team Collaboration</span>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2>Experience</h2>
-        <div class="experience">
-          <article class="item">
-            <h3>Most Recent Roles</h3>
-            <small>For up-to-date titles, companies, and dates</small>
-            <p>See the full experience timeline on <a href="https://www.linkedin.com/in/daniel-alistar/">LinkedIn</a>.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2>Education</h2>
+    <section class="card wide">
+      <h2>Core Skills</h2>
+      <div class="skill-groups">
         <article class="item">
-          <h3>Academic Background</h3>
-          <small>For the latest education details and certifications</small>
-          <p>See the education section on <a href="https://www.linkedin.com/in/daniel-alistar/">LinkedIn</a>.</p>
+          <h3>Backend and APIs</h3>
+          <div class="badges">
+            <span class="badge">Ruby</span>
+            <span class="badge">Ruby on Rails</span>
+            <span class="badge">Java</span>
+            <span class="badge">Spring Boot</span>
+            <span class="badge">Node.js</span>
+            <span class="badge">Javascript</span>
+            <span class="badge">TypeScript</span>
+            <span class="badge">Next.js</span>
+            <span class="badge">REST APIs</span>
+            <span class="badge">FHIR</span>
+            <span class="badge">HL7</span>
+          </div>
         </article>
-      </section>
-    </main>
-  </body>
+        <article class="item">
+          <h3>Integrations and Data</h3>
+          <div class="badges">
+            <span class="badge">ETL</span>
+            <span class="badge">Pentaho</span>
+            <span class="badge">SFTP and API Integrations</span>
+            <span class="badge">SQL</span>
+            <span class="badge">PL/SQL</span>
+            <span class="badge">T-SQL</span>
+            <span class="badge">MySQL</span>
+            <span class="badge">Oracle Database</span>
+            <span class="badge">Oracle APEX</span>
+          </div>
+        </article>
+        <article class="item">
+          <h3>Delivery and Collaboration</h3>
+          <div class="badges">
+            <span class="badge">CI/CD</span>
+            <span class="badge">Jenkins</span>
+            <span class="badge">Docker</span>
+            <span class="badge">Kubernetes</span>
+            <span class="badge">Git</span>
+            <span class="badge">Linux</span>
+            <span class="badge">Azure</span>
+            <span class="badge">AWS</span>
+            <span class="badge">Splunk</span>
+            <span class="badge">Mentoring</span>
+            <span class="badge">Stakeholder Communication</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="card wide">
+      <h2>Professional Experience</h2>
+      <div class="experience-list">
+        <article class="item">
+          <h3>Oracle - Software Development Engineer</h3>
+          <p class="meta-line">May 2024 - Present</p>
+          <ul>
+            <li>Develop and maintain FHIR-compliant APIs with Ruby on Rails to support healthcare interoperability
+              workflows.</li>
+            <li>Collaborate with DevOps, security, and product teams to align implementation decisions with product
+              goals.</li>
+            <li>Contribute to workflow improvements, engineering efficiency, and team knowledge sharing.</li>
+            <li>Demonstrate strong ownership by identifying and reporting a critical vulnerability.</li>
+          </ul>
+        </article>
+
+        <article class="item">
+          <h3>Maxcode - Software and System Engineer</h3>
+          <p class="meta-line">Aug 2021 - May 2024</p>
+          <ul>
+            <li>Designed and maintained ETL processes with Pentaho, JavaScript, Java, and related data tooling.</li>
+            <li>Managed inbound and outbound SFTP/API integrations to ensure reliable data exchange.</li>
+            <li>Built scripts and APIs with Java, JavaScript, and shell tools for operational and business needs.</li>
+            <li>Led development and maintenance of an internal reporting web app using Angular and TypeScript.</li>
+            <li>Supported process standards and mentored teammates across projects.</li>
+          </ul>
+        </article>
+
+        <article class="item">
+          <h3>Freelance - Full-Stack Developer</h3>
+          <p class="meta-line">Nov 2022 - Sep 2023</p>
+          <ul>
+            <li>Developed scalable backend services with Java and Spring Boot as the primary focus.</li>
+            <li>Integrated frontend and backend components to deliver complete web application features.</li>
+            <li>Built and consumed RESTful APIs for reliable client-server communication.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Education</h2>
+      <article class="item">
+        <h3>Vasile Alecsandri University of Bacau</h3>
+        <p class="meta-line">Bachelor's Degree in Information Technology | Oct 2023 - Present</p>
+      </article>
+      <article class="item">
+        <h3>Wantsome</h3>
+        <p class="meta-line">Java Programming | 2019 - 2020</p>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>Additional Experience</h2>
+      <article class="item">
+        <p>
+          Technical Support Engineer (Comodo), Incident Manager (Capgemini), and Assistant (EPO Bygg Norge AS).
+          These roles strengthened communication, customer support, incident coordination, and practical
+          problem-solving under pressure.
+        </p>
+      </article>
+    </section>
+  </main>
+</body>
+
 </html>
