@@ -5,6 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daniel Alistar | Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet" />
   <style>
     :root {
       color-scheme: dark;
@@ -104,7 +109,6 @@
     }
 
     .headline {
-      font-size: 1.1rem;
       text-wrap: pretty;
     }
 
@@ -180,6 +184,19 @@
       color: #ede4ff;
     }
 
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+    }
+
+    .link-pill:focus-visible {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(166, 134, 255, 0.28);
+      text-decoration: none;
+    }
+
     .wide {
       grid-column: span 1;
     }
@@ -205,6 +222,22 @@
       .hero,
       .wide {
         grid-column: span 2;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .card,
+      .card:nth-child(2),
+      .card:nth-child(3),
+      .card:nth-child(4) {
+        animation: none;
       }
     }
   </style>
